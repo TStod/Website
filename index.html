@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Teddy Stoddard</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li data-target="#myCarousel" data-slide-to="0" class="active">
+              <a href="#">About Me</a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="1">
+              <a href="#">Projects</a>
+            </li>
+            <li data-target="#myCarousel" data-slide-to="2">
+              <a href="#">Work</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+    <!-- Full Page Image Background Carousel Header -->
+    <div id="myCarousel" class="carousel slide">
+      <!-- Wrapper for Slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="slideWrapper" id="asdf1">
+            <!-- About Me -->
+            <div class="row">
+              <div class="col-sm-5">
+                Goals:
+                I want a job.
+                Where I can be an individual integral contributer
+                Where I can work with people I like
+                In a culture I like
+                In a place I like
+                Where I can be challenged
+                And where I can be paid
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                School:
+                Lincoln
+                LSRHS
+                NEU
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                Fun:
+                Social
+                WaterSkiing
+                Biking
+                VideoGames
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item" id="asdf2">
+          <div class="overflowHidden">
+            <div class="slideWrapper">
+              <!-- Projects -->
+              <div class="row">
+                <div class="col-sm-12 hidden-xs largeSpacer"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      Pneumatic Tactile Feedback Glove
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <a href="#" data-toggle="modal" data-image="./images/Capstone-Back.jpeg" data-target="#imageModal">
+                        <img src="./images/Capstone-Back.jpeg" class="leftImage">
+                      </a>
+                      <img src="./images/Capstone-Hand.jpg" class="centerImage">
+                      <img src="./images/Capstone-Side.jpeg" class="rightImage">
+                    </div>
+                    <div class="row rowDescription">
+                      Working with four other Northeastern University students, I developed a prototype feedback device for use with virtual reality. I pushed for a familiar method of feedback and came up with the idea of using pneumatics to apply pressure to the hand. I worked on the project from its initial conception through the synthesis of the prototype and demo. To our excitement, the project earned second place at the semesters Capstone design competition. The system precisely distributes pneumatic pressure to a collection of pouches on a glove. The pouches are inflated and deflated based on commands received over a serial connection from a computer. Leveraging the large number of GPIOs on the Arduino Mega, it rapidly measures the pressure of each pouch and actuates specific solenoid valves to maintain a constant experience for the user. We integrated the serial communication in a demo using Unity and the Leap Motion allowing users to feel objects they touch in VR.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 hidden-xs smallSpacer"></div>
+                  </div>
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      Fibonacci Lattice Sphere
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <img src="images/fibonacciSphere" class="rowImage">
+                    </div>
+                    <div class="row rowDescription">
+                      In this project, I wrote an algorithm to calculate the nearest point on a Fibonacci Lattice Sphere. I then explored various methods of parallelizing it using OpenMP, MPI, and OpenACC. Using maps and some trigonometric calculations I wrote an elegant algorithm and achieved constant runtime regardless of the number of points on the lattice (excluding setup costs). I then explored divide and conquer techniques along with other structural algorithm modifications to parallelize batch processing of randomly generated points with the goal of minimum runtime.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      Broadcom WiFi Optimization
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <img src="images/wifi" class="rowImage">
+                    </div>
+                    <div class="row rowDescription">
+                      For this project I worked with two other Northeastern University students in my Wireless Sensor Networks class to measure the difference in power consumption, latency, and reliability of a 802.11 Power Save connection for varying device listen intervals. This project was motivated by two major factors: the high power cost of WiFi listening for always online always connected devices, and the variety in performance of access points. The goal of the project was to make a wireless driver adapt to the access point it connects to by configuring it's listen interval to match the amount of time the access point would buffer packets. Using a Broadcom WICED development kit and the WICED SDK I tested various listening frequencies and measured the power consumption.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 hidden-xs smallSpacer"></div>
+                  </div>
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      OneQueue
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <img src="images/OneQueue-Menu.png" class="leftImage">
+                      <img src="images/OneQueue-Now Playing.png" class="centerImage">
+                      <img src="images/OneQueue-Queue Settings.png" class="rightImage">
+                    </div>
+                    <div class="row rowDescription">
+                      I worked on this project for my Innovation class at northeastern University with four other undergraduate students. I drew my inspiration for this project comes from SONOS with the goal of making it more accessible and user friendly. We explored the idea of integrating music streaming services into a single platform and then allowing users to create and contribute to live shared queues on local wireless networks. Users would bring services attached to their account to queues they joined and have them removed when they left. The most innovative part of this project was the idea to have users be able to share and contribute music from the comfort of their own phone while allowing that music to be played on existing speakers. Throughout the project we focused on the business side of things, leaving the product in the wireframe stages of development.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 hidden-xs largeSpacer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="slideWrapper" id="asdf3">
+            <!-- Work -->
+            Tyto Life LLC
+
+            GE Oil and Gas, Measurement and Control
+            
+            Instrumentation Laboratories
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" data-toggle="modal" data-target="#imageModal">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img id="imageModalImage" class="img-responsive" src="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="navbar-fixed-bottom">
+      <a href="tel:1-781-738-1200">
+        <img src="images/Phone-white.png" width="40" height="40" alt="Give me a call" border="0">
+      </a>
+      <a href="https://www.linkedin.com/pub/theodore-stoddard/90/353/41b" target="_newtab">
+        <img src="images/linkedin-white.png" width="40" height="40" alt="Connect with me on LinkedIn" border="0">
+        </a>
+      <a href="https://github.com/TStod/" target="_newtab">
+        <img src="images/GitHub-white.png" width="40" height="40" alt="Check out my GitHub" border="0">
+      </a>
+      <a href="https://www.facebook.com/teddy.stoddard" target="_newtab">
+        <img src="images/facebook-white.png" width="40" height="40" alt="Add me on Facebook" border="0">
+      </a>
+      <a href="mailto:stoddard.t@husky.neu.edu" target="_newtab">
+        <img src="images/email-white.png" width="40" height="40" alt="Send me an Email" border="0">
+      </a>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- My Scripts -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
