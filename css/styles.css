@@ -70,7 +70,7 @@ ul.nav > li > a {
 }
 .navbar .navbar-toggle:focus,
 .navbar .navbar-toggle:hover {
-  background-color: rgba(51, 51, 51, .85);
+  background-color: rgba(0, 0, 0, .65);
 }
 .navbar .navbar-collapse {
   border-color: #fff;
@@ -79,7 +79,7 @@ ul.nav > li > a {
   background-color: transparent;
 }
 .navbar, .navbar-fixed-bottom {
-  background-color: rgba(51, 51, 41, .85);
+  background-color: rgba(0, 0, 0, .65);
 }
 .navbar-fixed-top {
   border-bottom: 1px solid #fff;
@@ -98,12 +98,8 @@ ul.nav > li > a {
   display: none;
 }
 .slideWrapper > .row > .col-sm-5 {
-  margin-bottom: -1px;
 }
-.largeSpacer {
-  height: 30px;
-}
-.smallSpacer {
+.spacer {
   height: 30px;
 }
 .item {
@@ -116,18 +112,13 @@ ul.nav > li > a {
   height: 100%;
 }
 .itemWrapper {
-  margin-left: -1px;
-  margin-right: -1px;
-  margin-top: -1px;
-  border: 1px solid #fff;
   font-weight: normal;
   padding: 10px;
-  background-color: rgba(51, 51, 51, .85);
+  background-color: rgba(0, 0, 0, .65);
   color: #fff;
 }
 .rowTitle {
   padding-bottom: 10px;
-  border-bottom: 1px solid #fff;
   margin: 10px;
   font-family: Montserrat;
   font-size: 30px;
@@ -156,7 +147,6 @@ ul.nav > li > a {
   margin: 10px;
   text-align: justify;
   text-justify: inter-word;
-  border-top: 1px solid #fff;
 }
 #asdf1 {
   background-color: #999;
