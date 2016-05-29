@@ -67,9 +67,16 @@ $(".slideWrapper").on("scroll", function() {
   $(this).parent().parent().css("background-position", "100% " + ($(this).scrollTop() * scrollFactor) + "px");
 });
 
-$(".rowImageWrapper a").on("click", function() {
-  $("#imageModalImage").attr("src", $(this).data("image"));
+$(".rowImageWrapper a").on("click", function() {  
+  $("#imageModalImage").attr("src", $(this).children().first().attr("src"));
 });
+
+$(".navbar-collapse").on("show.bs.collapse", function () {
+  $(".overflowHidden").addClass("shrink");
+});
+$(".navbar-collapse").on("hide.bs.collapse", function () {
+  $(".overflowHidden").removeClass("shrink");
+})
 
 try {
   document.createEvent("TouchEvent");
