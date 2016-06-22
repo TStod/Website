@@ -10,6 +10,7 @@
        url("../fonts/open-sans-v13-latin-regular.ttf") format("truetype"), /* Safari, Android, iOS */
        url("../fonts/open-sans-v13-latin-regular.svg#OpenSans") format("svg"); /* Legacy iOS */
 }
+
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
@@ -23,10 +24,22 @@
        url("../fonts/montserrat-v7-latin-regular.svg#Montserrat") format("svg"); /* Legacy iOS */
 }
 
+@-ms-viewport {
+  zoom: 1.0;
+  width: device-width;
+}
+
+@viewport {
+  zoom: 1.0;
+  width: device-width;
+}
+
 html,
 body {
   font-family: Open Sans;
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .carousel,
@@ -34,59 +47,75 @@ body {
 .active {
   height: 100%;
 }
+
 .carousel-inner {
   height: 100%;
 }
+
 .nav,
 .navbar .navbar-brand {
   color: #fff;
 }
+
 .navbar-brand {
   font-family: Montserrat;
   font-size: 22px;
 }
+
 .icon-bar {
   background-color: #fff;
 }
+
 .navbar-collapse.collapse.collapsing > ul.nav > li.active,
 .navbar-collapse.collapse.in > ul.nav > li.active {
   border-left: 5px solid #fff;
 }
+
 .navbar-collapse.collapse.collapsing > ul.nav > li.active,
 .navbar-collapse.collapse.in > ul.nav > li.active > a {
   border-bottom: none;
 }
+
 .navbar-collapse.collapse > ul.nav > li.active > a {
   border-bottom: 5px solid #fff;
   padding-bottom: 10px;
 }
+
 ul.nav > li > a {
   font-size: 16px;
   color: #fff;
 }
+
 .navbar .navbar-toggle {
   border: 1px solid #fff;
   background-color: inherit;
 }
+
 .navbar .navbar-toggle:focus,
 .navbar .navbar-toggle:hover {
   background-color: rgba(0, 0, 0, .65);
 }
+
 .navbar .navbar-collapse {
   border-color: #fff;
 }
+
 .navbar .navbar-nav > li > a {
   background-color: transparent;
 }
+
 .navbar, .navbar-fixed-bottom {
   background-color: rgba(0, 0, 0, .65);
 }
+
 .navbar-fixed-top {
   border-bottom: 1px solid #fff;
 }
+
 .navbar-fixed-bottom {
   border-top: 1px solid #fff;
 }
+
 .slideWrapper {
   width: 100%;
   height: 100%;
@@ -94,22 +123,25 @@ ul.nav > li > a {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
 .slideWrapper::-webkit-scrollbar { 
   display: none;
 }
-.slideWrapper > .row > .col-sm-5 {
-}
+
 .spacer {
   height: 30px;
 }
+
 .separator {
-  height: 1px;
-  background-color: #fff;
+  height: 0px;
+  border-bottom: 1px solid #fff;
 }
+
 .carousel-inner > .item {
   padding-top: 50px;
   padding-bottom: 39px;
 }
+
 .overflowHidden {
   overflow: auto;
   width: 100%;
@@ -125,56 +157,117 @@ ul.nav > li > a {
        -o-transition-property: padding-top;
           transition-property: padding-top;
 }
+
 .shrink {
   padding-top: 136px;
 }
+
 .itemWrapper {
   font-weight: normal;
-  padding: 10px;
+  padding: 15px;
   background-color: rgba(0, 0, 0, .65);
   color: #fff;
 }
+
+#goalsTitle {
+  position: relative;
+  font-family: Montserrat;
+  height: 100%;
+  font-size: 30px;
+}
+
+#goalsDescription {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#goalsDescription > div {
+  font-size: 14px;
+  text-align: left;
+  /*text-align: justify;*/
+  /*text-justify: inter-word;*/
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .rowTitle {
   padding-bottom: 10px;
   margin: 10px;
   font-family: Montserrat;
   font-size: 30px;
 }
+
 .rowImageWrapper {
   padding-top: 10px;
   padding-bottom: 10px;
   margin: 10px;
 }
+
 .rowImage {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
-.leftImage, .centerImage, .rightImage {
-  max-width: 30%;
-  border: 1px solid #fff;
+
+.rowImageWrapper > a {
+  outline: none
 }
+
+.leftImage, .centerImage, .rightImage {
+  width: 30%;
+}
+
 .leftImage {
   float: left;
 }
+
 .rightImage {
   float: right;
 }
+
+@media screen and (min-width: 768px) {
+  .modal-sm {
+    width: 392px; /* New width for small modal */
+  }
+}
+
+#WiFi-Graph {
+  width: 45%
+}
+
+#WiFi-Probed, #WiFi-Setup {
+  width: 22.5%
+}
+
 .rowDescription {
   padding-top: 10px;
   margin: 10px;
   text-align: justify;
   text-justify: inter-word;
 }
-#asdf1 {
-  background-color: #999;
+
+#aboutMe {
+  /*background-position: 100% 0px;*/
+  /*background-image: url(../images/slate.jpg);*/
+  /*background-size: auto;*/
 }
-#asdf2 {
+
+#projects {
   background-position: 100% 0px;
   background-image: url(../images/workbench.jpg);
+  background-size: auto;
 }
+
+#work {
+  /*background-position: 100% 0px;*/
+  /*background-image: url(../images/work.jpg);*/
+  /*background-size: auto;*/
+}
+
 #asdf3 {
   background-color: #999;
 }
+
 footer {
   position: absolute;
   text-align: center;
@@ -184,10 +277,24 @@ footer {
   height: 40px;
   background-color: #222;
 }
+
 footer > a {
   text-decoration: none;
 }
+
 footer > a > img {
   padding: 10px;
   vertical-align:middle;
+}
+
+.imageBuffer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  bottom: 0px;
+  right: 0px;
+}
+
+.imageBuffer > img {
+  position: absolute;
 }

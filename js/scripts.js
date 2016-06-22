@@ -1,3 +1,26 @@
+$(".carousel").carousel({
+    interval: false
+});
+
+// This is an attempt at predecoding carousel images 
+// to make the first carousel transition better
+$("img").each(function() {
+  var src = $(this).attr("src");
+  if (src !== "") {
+    $('<img src="'+ src +'">').load(function() {
+      $(this).width(1).height(1).appendTo(".imageBuffer");
+    });
+  }
+});
+// This is a similar function for use with background images
+$(".item").each(function() {
+  var src = $(this).css("background-image");
+  if (src !== "none") {
+    $('<img src="'+ src.split("\"")[1] +'">').load(function() {
+      $(this).width(1).height(1).appendTo(".imageBuffer");
+    });
+  }
+});
 
 // Swipe Detection Credit:
 // http://www.javascriptkit.com/javatutors/touchevents2.shtml
@@ -8,8 +31,8 @@ function swipeDetect(element, callback) {
   var startY;
   var distX;
   var distY;
-  var threshold = 150; //required min distance traveled to be considered swipe
-  var restraint = 100; // maximum distance allowed at the same time in perpendicular direction
+  var threshold = 100; //required min distance traveled to be considered swipe
+  var restraint = 60; // maximum distance allowed at the same time in perpendicular direction
   var allowedTime = 500; // maximum time allowed to travel that distance
   var elapsedTime;
   var startTime;
@@ -47,10 +70,6 @@ function swipeDetect(element, callback) {
   }, false);
 }
 
-$(".carousel").carousel({
-    interval: false
-});
-
 $(".nav li").on("click", function() {
   $("li.active").removeClass("active");
   $(this).addClass("active");
@@ -62,13 +81,13 @@ $(".nav li").on("click", function() {
   }
 });
 
-var scrollFactor = -0.2;
+var scrollFactor = -0.25;
 $(".slideWrapper").on("scroll", function() {
   $(this).parent().parent().css("background-position", "100% " + ($(this).scrollTop() * scrollFactor) + "px");
 });
 
 $(".rowImageWrapper a").on("click", function() {  
-  $("#imageModalImage").attr("src", $(this).children().first().attr("src"));
+  $(".imageModalImage").attr("src", $(this).children().first().attr("src"));
 });
 
 $(".navbar-collapse").on("show.bs.collapse", function () {
@@ -108,3 +127,29 @@ try {
 catch (e) {
   // desktop version, no touch events
 }
+
+// $(window).load(function() {
+//   $(".carousel").carousel({
+//       interval: false
+//   });
+
+//   // This is an attempt at predecoding carousel images 
+//   // to make the first carousel transition better
+//   $("img").each(function() {
+//     var src = $(this).attr("src");
+//     if (src !== "") {
+//       $('<img src="'+ src +'">').load(function() {
+//         $(this).width(1).height(1).appendTo(".imageBuffer");
+//       });
+//     }
+//   });
+//   // This is a similar function for use with background images
+//   $(".item").each(function() {
+//     var src = $(this).css("background-image");
+//     if (src !== "none") {
+//       $('<img src="'+ src.split("\"")[1] +'">').load(function() {
+//         $(this).width(1).height(1).appendTo(".imageBuffer");
+//       });
+//     }
+//   });
+// });

@@ -3,22 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="title" content="Teddy Stoddard">
+    <meta name="description" content="A website about me!">
+    <meta name="author" content="Teddy Stoddard">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="js/initialize.js"></script>
   </head>
 
   <body>
@@ -27,7 +22,7 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBarColapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,7 +31,7 @@
           <a class="navbar-brand">Teddy Stoddard</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="navBarColapse">
           <ul class="nav navbar-nav">
             <li data-target="#myCarousel" data-slide-to="0" class="active">
               <a href="#">About Me</a>
@@ -54,45 +49,56 @@
       <!-- /.container -->
     </nav>
 
+    
     <!-- Full Page Image Background Carousel Header -->
     <div id="myCarousel" class="carousel slide">
       <!-- Wrapper for Slides -->
       <div class="carousel-inner">
-        <div class="item active">
-          <div class="slideWrapper" id="asdf1">
-            <!-- About Me -->
-            <div class="row">
-              <div class="col-sm-5">
-                Goals:
-                I want a job.
-                Where I can be an individual integral contributer
-                Where I can work with people I like
-                In a culture I like
-                In a place I like
-                Where I can be challenged
-                And where I can be paid
+        <div class="item active" id="aboutMe">
+          <div class="overflowHidden">
+            <div class="slideWrapper">
+              <!-- About Me -->
+              <div class="row">
+                <div class="col-sm-12 spacer hidden-xs"></div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                School:
-                Lincoln
-                LSRHS
-                NEU
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 itemWrapper">
+                  <div class="row">
+                    <div class="col-sm-4" id="goalsTitle">
+                      My goals are
+                    </div>
+                    <div class="col-sm-8" id="goalsDescription">
+                      <div>
+                        &#8226; to be a technical individual contributor on a small product development team
+                      </div>
+                      <div>
+                        &#8226; to work for a company that values workplace culture and openness
+                      </div>
+                      <div>
+                        &#8226; to work alongside both like-minded and innovative colleagues
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                Fun:
-                Social
-                WaterSkiing
-                Biking
-                VideoGames
+              <div class="row">
+                <div class="col-sm-12 spacer hidden-xs"></div>
+                <div class="col-xs-12 separator hidden-sm hidden-md hidden-lg"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-10 col-sm-offset-1 itemWrapper">
+                  <div class="row rowDescription">
+                    Hello World, my name is Teddy Stoddard and I'm a computer engineer! Freshly graduated from Northeastern University this spring, I am actively looking for a job in the tech sector while enjoying some travel and summer sun. I enjoy tackling challenges in the workplace and in my own time, taking on a variety of independent projects. I pride myself in my enthusiasm, outside the box thinking and ability to learn quickly. I consider myself reasonably social but still somewhat introverted, enjoying both solo and group outings. I like spending time outdoors doing recreational activities like water skiing, hiking, and playing tennis.
+                  </div>
+                  <div class="row rowDescription">
+                    I grew up in Lincoln, a western suburb of Boston, and attended Lincoln Sudbury Regional High School. I continued my education further at Northeastern University in Boston majoring in electrical engineering before switching to computer engineering after finding a love for programming. As previously mentioned I have just graduated, finishing out a challenging semester full of technical projects including my Capstone design project. I enjoyed my time at Northeastern immensely and would highly recommend it to high school seniors. During my time at NEU I took full advantage of the co-op program, working for three awesome companies: Instrumentation Laboratory, GE, and Tyto Life.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="item" id="asdf2">
+        <div class="item" id="projects">
           <div class="overflowHidden">
             <div class="slideWrapper">
               <!-- Projects -->
@@ -106,13 +112,13 @@
                       Pneumatic Tactile Feedback Glove
                     </div>
                     <div class="row rowImageWrapper">
-                      <a href="#" data-toggle="modal" data-target="#imageModal">
+                      <a href="#" data-toggle="modal" data-target="#mediumImageModal">
                         <img src="./images/Capstone-Angle.jpg" class="leftImage">
                       </a>
-                      <a href="#" data-toggle="modal" data-target="#imageModal">
+                      <a href="#" data-toggle="modal" data-target="#mediumImageModal">
                         <img src="./images/Capstone-Side.jpg" class="centerImage">
                       </a>
-                      <a href="#" data-toggle="modal" data-target="#imageModal">
+                      <a href="#" data-toggle="modal" data-target="#mediumImageModal">
                         <img src="./images/Capstone-Top.jpg" class="rightImage">
                       </a>
                     </div>
@@ -129,7 +135,9 @@
                       Fibonacci Lattice Sphere
                     </div>
                     <div class="row rowImageWrapper">
-                      <img src="images/fibonacciSphere" class="rowImage">
+                      <a href="#" data-toggle="modal" data-target="#largeImageModal">
+                        <img src="./images/FibonacciSphere.png" class="rowImage">
+                      </a>
                     </div>
                     <div class="row rowDescription">
                       In this project, I wrote an algorithm to calculate the nearest point on a Fibonacci Lattice Sphere. I then explored various methods of parallelizing it using OpenMP, MPI, and OpenACC. Using maps and some trigonometric calculations I wrote an elegant algorithm and achieved constant runtime regardless of the number of points on the lattice (excluding setup costs). I then explored divide and conquer techniques along with other structural algorithm modifications to parallelize batch processing of randomly generated points with the goal of minimum runtime.
@@ -145,7 +153,15 @@
                       Broadcom WiFi Optimization
                     </div>
                     <div class="row rowImageWrapper">
-                      <img src="images/wifi" class="rowImage">
+                      <a href="#" data-toggle="modal" data-target="#mediumImageModal">
+                        <img id="WiFi-Probed" src="./images/WiFi-Probed.jpg" class="leftImage">
+                      </a>
+                      <a href="#" data-toggle="modal" data-target="#largeImageModal">
+                        <img id="WiFi-Graph" src="./images/WiFi-Graph.jpg" class="centerImage">
+                      </a>
+                      <a href="#" data-toggle="modal" data-target="#mediumImageModal">
+                        <img id="WiFi-Setup" src="./images/WiFi-Setup.jpg" class="rightImage">
+                      </a>
                     </div>
                     <div class="row rowDescription">
                       For this project I worked with two other Northeastern University students in my Wireless Sensor Networks class to measure the difference in power consumption, latency, and reliability of a 802.11 Power Save connection for varying device listen intervals. This project was motivated by two major factors: the high power cost of WiFi listening for always online always connected devices, and the variety in performance of access points. The goal of the project was to make a wireless driver adapt to the access point it connects to by configuring it's listen interval to match the amount of time the access point would buffer packets. Using a Broadcom WICED development kit and the WICED SDK I tested various listening frequencies and measured the power consumption.
@@ -160,12 +176,18 @@
                       OneQueue
                     </div>
                     <div class="row rowImageWrapper">
-                      <img src="images/OneQueue-Menu.png" class="leftImage">
-                      <img src="images/OneQueue-Now Playing.png" class="centerImage">
-                      <img src="images/OneQueue-Queue Settings.png" class="rightImage">
+                      <a href="#" data-toggle="modal" data-target="#smallImageModal">
+                        <img src="./images/OneQueue-Menu.png" class="leftImage">
+                      </a>
+                      <a href="#" data-toggle="modal" data-target="#smallImageModal">
+                        <img src="./images/OneQueue-Now Playing.png" class="centerImage">
+                      </a>
+                      <a href="#" data-toggle="modal" data-target="#smallImageModal">
+                        <img src="./images/OneQueue-Queue Settings.png" class="rightImage">
+                      </a>
                     </div>
                     <div class="row rowDescription">
-                      I worked on this project for my Innovation class at northeastern University with four other undergraduate students. I drew my inspiration for this project comes from SONOS with the goal of making it more accessible and user friendly. We explored the idea of integrating music streaming services into a single platform and then allowing users to create and contribute to live shared queues on local wireless networks. Users would bring services attached to their account to queues they joined and have them removed when they left. The most innovative part of this project was the idea to have users be able to share and contribute music from the comfort of their own phone while allowing that music to be played on existing speakers. Throughout the project we focused on the business side of things, leaving the product in the wireframe stages of development.
+                      I worked on this project for my Innovation class at Northeastern University with four other undergraduate students. I drew my inspiration for this project comes from SONOS with the goal of making a more accessible and user friendly version. We explored the idea of integrating music streaming services into a single platform and then allowing users to create and contribute to live shared queues on local wireless networks. Users would bring services attached to their account to queues they joined and have them removed when they left. The most innovative part of this project was the idea to have users be able to share and contribute music from the comfort of their own phone while allowing that music to be played on existing speakers. Throughout the project we focused on the business side of things, leaving the product in the wireframe stages of development as shown above.
                     </div>
                   </div>
                 </div>
@@ -176,25 +198,110 @@
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="slideWrapper" id="asdf3">
-            <!-- Work -->
-            Tyto Life LLC
-
-            GE Oil and Gas, Measurement and Control
-            
-            Instrumentation Laboratories
-
+        <div class="item" id="work">
+          <div class="overflowHidden">
+            <div class="slideWrapper">
+              <!-- Work -->
+              <div class="row">
+                <div class="col-sm-12 spacer hidden-xs"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      Tyto Life LLC
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <a href="https://tyto.com/" target="_newtab">
+                        <img class="rowImage" src="./images/TytoLife.png">
+                      </a>
+                    </div>
+                    <div class="row rowDescription">
+                      July 2015 – December 2015
+                    </div>
+                    <div class="row rowDescription">
+                      Worked with an awesome interdisciplinary team on a special product related to the internet of things for Tyto Life LLC, a stealth startup out of the bay area. Developed with an Ember, Node, and MongoDB web stack. Learned about security best practices and adopted both practical and applicable git workflows. Worked on an upgrade server, improving message structures, building an administration tool, and improving overall user experience. Gained an appreciation for design and company culture.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 spacer hidden-xs"></div>
+                    <div class="col-xs-12 separator hidden-sm hidden-md hidden-lg"></div>
+                  </div>
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      Instrumentation Laboratory
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <a href="http://www.instrumentationlaboratory.com/" target="_newtab">
+                        <img class="rowImage" src="./images/InstrumentationLaboratory.png">
+                      </a>
+                    </div>
+                    <div class="row rowDescription">
+                      January 2013 – June 2013
+                    </div>
+                    <div class="row rowDescription">
+                      Worked on an interdisciplinary project team to develop a point of care blood analysis instrument. Designed and built a power up testing module to check internal discrete wire connections. Documented build procedures and wrote verification protocols for instrument subassemblies. Soldered 0603 size components and 30 Gauge wire to rework prototype circuit boards. Tested components, software, and instruments. Worked closely with potential sellers for verification of critical instrument components.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-5">
+                  <div class="row">
+                    <div class="col-xs-12 separator hidden-sm hidden-md hidden-lg"></div>
+                  </div>
+                  <div class="itemWrapper">
+                    <div class="row rowTitle">
+                      GE: Oil and Gas, Measurment and Control
+                    </div>
+                    <div class="row rowImageWrapper">
+                      <a href="https://www.gemeasurement.com/oil-gas-solutions" target="_newtab">
+                        <img class="rowImage" src="./images/GE.png">
+                      </a>
+                    </div>
+                    <div class="row rowDescription">
+                      July 2014 – December 2014
+                    </div>
+                    <div class="row rowDescription">
+                      Developed a prototype application for tracking documents and certifications. Tasked with developing a procedure for document control. Met with the three major parties that would be affected by the new procedure: Certification Engineers, Project Managers, and Application Engineers. Decided that an application linking a certification database with a project tracker and a product configurator tool was an optimal way of implementing a document control procedure. Developed requirements for the three major components and detailed their linkages and the back end architecture of the application. Designed and developed a prototype web application (HTML, CSS and JavaScript) with a Node.js (Asynchronous) backend. Extracted relevant data to a usable format from a complete product database using VBA. Developed a way to represent complex certifications in a simple data structure while still leaving room for future growth.
+                      <br>
+                      Recovered the majority of an electrical component library lost in a server crash. Used unorthodox techniques including AutoIt to automatically extract component lists from DxDesigner files to Excel. Processed the nonuniform data using an Excel VBA program to create the new library.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 spacer hidden-xs"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" data-toggle="modal" data-target="#imageModal">
+    <div class="modal fade" id="smallImageModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm" data-toggle="modal" data-target="#smallImageModal">
         <div class="modal-content">
           <div class="modal-body">
-            <img id="imageModalImage" class="img-responsive" src="">
+            <img class="img-responsive imageModalImage" src="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="mediumImageModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" data-toggle="modal" data-target="#mediumImageModal">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img class="img-responsive imageModalImage" src="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="largeImageModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-lg" data-toggle="modal" data-target="#largeImageModal">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img class="img-responsive imageModalImage" src="">
           </div>
         </div>
       </div>
@@ -202,22 +309,22 @@
 
     <footer class="navbar-fixed-bottom">
       <a href="tel:1-781-738-1200">
-        <img src="images/Phone-white.png" width="40" height="40" alt="Give me a call" border="0">
+        <img src="./images/Icon-Phone.png" width="40" height="40" alt="Give me a call" border="0">
       </a>
       <a href="https://www.linkedin.com/pub/theodore-stoddard/90/353/41b" target="_newtab">
-        <img src="images/linkedin-white.png" width="40" height="40" alt="Connect with me on LinkedIn" border="0">
+        <img src="./images/Icon-LinkedIn.png" width="40" height="40" alt="Connect with me on LinkedIn" border="0">
         </a>
       <a href="https://github.com/TStod/" target="_newtab">
-        <img src="images/GitHub-white.png" width="40" height="40" alt="Check out my GitHub" border="0">
+        <img src="./images/Icon-GitHub.png" width="40" height="40" alt="Check out my GitHub" border="0">
       </a>
       <a href="https://www.facebook.com/teddy.stoddard" target="_newtab">
-        <img src="images/facebook-white.png" width="40" height="40" alt="Add me on Facebook" border="0">
+        <img src="./images/Icon-Facebook.png" width="40" height="40" alt="Add me on Facebook" border="0">
       </a>
       <a href="mailto:stoddard.t@husky.neu.edu" target="_newtab">
-        <img src="images/email-white.png" width="40" height="40" alt="Send me an Email" border="0">
+        <img src="./images/Icon-Email.png" width="40" height="40" alt="Send me an Email" border="0">
       </a>
     </footer>
-
+    <div class="imageBuffer"></div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
