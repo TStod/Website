@@ -250,7 +250,11 @@ ul.nav > li > a {
 }
 
 .rowImageWrapper > a {
-  outline: none
+  outline: none;
+}
+
+.rowImageWrapper.withBorder > a {
+  outline: 1px solid #fff;
 }
 
 .leftImage, .centerImage, .rightImage {
