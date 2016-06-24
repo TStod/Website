@@ -103,14 +103,11 @@ $(".xScrollWrapper").on("scroll", function () {
 });
 var currentScrolls = {};
 $(".yScrollWrapper").on("scroll", function () {
-  console.log("scroll");
   var $that = $(this);
   currentScrolls[$that.index()] = $that.scrollTop();
-  console.log(currentScrolls);
   var totalScroll = 0;
   for (var key in currentScrolls) {
     totalScroll += currentScrolls[key];
   }
-  console.log(totalScroll);
   $("#backgroundImage img").css("margin-top", totalScroll * scrollFactor);
 });
