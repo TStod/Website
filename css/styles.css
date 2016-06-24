@@ -180,11 +180,6 @@ ul.nav > li > a {
   height: 0px;
   border-bottom: 1px solid #fff;
 }
-/*
-.carousel-inner > .item {
-  padding-top: 50px;
-  padding-bottom: 39px;
-}*/
 
 .overflowHidden {
   overflow: auto;
@@ -228,8 +223,6 @@ ul.nav > li > a {
 #goalsDescription > div {
   font-size: 14px;
   text-align: left;
-  /*text-align: justify;*/
-  /*text-justify: inter-word;*/
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 20px;
