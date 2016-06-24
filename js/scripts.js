@@ -1,9 +1,25 @@
-$(".carousel").carousel({
-    interval: false
-});
+function scrollToCurrentPage() {
+  var offset = $(window.location.hash + "NoScroll").offset();
+  if (offset) {
+    $(".xScrollWrapper").scrollLeft(offset.left);
+  }
+  else {
+    $(".xScrollWrapper").scrollLeft(0);
+  }
+}
 
-// This is an attempt at predecoding carousel images 
-// to make the first carousel transition better
+// Set the scroll property
+// This takes care of not scrolling on window refresh
+scrollToCurrentPage();
+
+// Select the proper navigation bar item
+$("li.active").removeClass("active");
+if ($(".navbar-nav li a[href$=\"" + window.location.hash + "\"]").closest("li").addClass("active").length == 0) {
+  $(".navbar-nav li:first-child").addClass("active");
+}
+
+// This is an attempt at pre-decoding images
+// With the goal of removing scroll stutter 
 $("img").each(function() {
   var src = $(this).attr("src");
   if (src !== "") {
@@ -12,6 +28,7 @@ $("img").each(function() {
     });
   }
 });
+
 // This is a similar function for use with background images
 $(".item").each(function() {
   var src = $(this).css("background-image");
@@ -22,134 +39,78 @@ $(".item").each(function() {
   }
 });
 
-// Swipe Detection Credit:
-// http://www.javascriptkit.com/javatutors/touchevents2.shtml
-function swipeDetect(element, callback) {
-  var touchSurface = element;
-  var swipedir;
-  var startX;
-  var startY;
-  var distX;
-  var distY;
-  var threshold = 100; //required min distance traveled to be considered swipe
-  var restraint = 60; // maximum distance allowed at the same time in perpendicular direction
-  var allowedTime = 500; // maximum time allowed to travel that distance
-  var elapsedTime;
-  var startTime;
-  var handleSwipe = callback || function(swipedir){};
-
-  touchSurface.addEventListener("touchstart", function(e) {
-    var touchobj = e.changedTouches[0];
-    swipedir = "none";
-    dist = 0;
-    startX = touchobj.pageX;
-    startY = touchobj.pageY;
-    startTime = new Date().getTime(); // record time when finger first makes contact with surface
-    // e.preventDefault();
-  }, false)
-
-  touchSurface.addEventListener("touchmove", function(e) {
-    // e.preventDefault(); // prevent scrolling when inside DIV
-  }, false);
-
-  touchSurface.addEventListener("touchend", function(e) {
-    var touchobj = e.changedTouches[0];
-    distX = touchobj.pageX - startX; // get horizontal dist traveled by finger while in contact with surface
-    distY = touchobj.pageY - startY; // get vertical dist traveled by finger while in contact with surface
-    elapsedTime = new Date().getTime() - startTime; // get time elapsed
-    if (elapsedTime <= allowedTime) { // first condition for awipe met
-      if ((Math.abs(distX) >= threshold) && (Math.abs(distY) <= restraint)) { // 2nd condition for horizontal swipe met
-        swipedir = (distX < 0) ? "left" : "right"; // if dist traveled is negative, it indicates left swipe
-      }
-      else if ((Math.abs(distY) >= threshold) && (Math.abs(distX) <= restraint)) { // 2nd condition for vertical swipe met
-        swipedir = (distY < 0) ? "up" : "down"; // if dist traveled is negative, it indicates up swipe
-      }
-    }
-    handleSwipe(swipedir);
-    // e.preventDefault();
-  }, false);
-}
-
+// On menu item click, minimize menu and scroll to target
 $(".nav li").on("click", function() {
-  $("li.active").removeClass("active");
-  $(this).addClass("active");
-});
-
-$(".nav li").on("click", function() {
+  scrollToPage($(this).index());
   if ($("button.navbar-toggle").attr("aria-expanded")) {
     $(".navbar-collapse").collapse("hide");
   }
 });
 
-var scrollFactor = -0.25;
-$(".slideWrapper").on("scroll", function() {
-  $(this).parent().parent().css("background-position", "100% " + ($(this).scrollTop() * scrollFactor) + "px");
-});
-
+// On image click open image modal with that image
 $(".rowImageWrapper a").on("click", function() {  
   $(".imageModalImage").attr("src", $(this).children().first().attr("src"));
 });
 
+// On showing navigation bar make main body smaller
 $(".navbar-collapse").on("show.bs.collapse", function () {
-  $(".overflowHidden").addClass("shrink");
+  $(".xScrollWrapper").addClass("shrink");
 });
-$(".navbar-collapse").on("hide.bs.collapse", function () {
-  $(".overflowHidden").removeClass("shrink");
-})
 
+// On hiding navigation bar make main body bigger
+$(".navbar-collapse").on("hide.bs.collapse", function () {
+  $(".xScrollWrapper").removeClass("shrink");
+});
+
+// Scroll to a page by index
+// Set hash and navigation item
+function scrollToPage(index) {
+  var mainWidth = $(".mainContent").width();
+  $(".xScrollWrapper").stop().animate({
+    scrollLeft: index * mainWidth
+  }, 500, "swing", function (index) {
+    $("li.active").removeClass("active");
+    $($(".navbar-nav").children()[index]).addClass("active");
+    window.location.hash = $("li.active a").attr("href");
+  }(index));
+};
+
+// Scroll to a page after a touch is released
+function scrollToNearestPage() {
+  var mainWidth = $(".mainContent").width();
+  var currentScroll = $(".xScrollWrapper").scrollLeft();
+  var nearest = Math.floor((currentScroll + (mainWidth / 2)) / mainWidth);  
+  scrollToPage(nearest);
+};
+
+// If touch events exist make us auto scroll to the nearest page
 try {
   document.createEvent("TouchEvent");
-  swipeDetect(document.getElementById("myCarousel"), function (direction) {
-    if (direction == "left") {
-      $("#myCarousel").carousel("next");
-      if ($("li.active").next().length == 0) {
-        $(".nav li").first().addClass("active");
-        $("li.active").last().removeClass("active");
-      }
-      else {
-        $("li.active").next().addClass("active");
-        $("li.active").first().removeClass("active");
-      }
-    }
-    else if (direction == "right") {
-      $("#myCarousel").carousel("prev");
-      if ($("li.active").prev().length == 0) {
-        $(".nav li").last().addClass("active");
-        $("li.active").first().removeClass("active");
-      }
-      else {
-        $("li.active").prev().addClass("active");
-        $("li.active").last().removeClass("active");
-      }
-    }
-  });
+  $(".xScrollWrapper").addEventListener("touchend", scrollToNearestPage);
 }
 catch (e) {
-  // desktop version, no touch events
+  // Desktop version, no touch events
 }
 
-// $(window).load(function() {
-//   $(".carousel").carousel({
-//       interval: false
-//   });
+// On resize scroll to current page
+// Not working at the moment properly need to debug
+$(window).resize(scrollToCurrentPage);
 
-//   // This is an attempt at predecoding carousel images 
-//   // to make the first carousel transition better
-//   $("img").each(function() {
-//     var src = $(this).attr("src");
-//     if (src !== "") {
-//       $('<img src="'+ src +'">').load(function() {
-//         $(this).width(1).height(1).appendTo(".imageBuffer");
-//       });
-//     }
-//   });
-//   // This is a similar function for use with background images
-//   $(".item").each(function() {
-//     var src = $(this).css("background-image");
-//     if (src !== "none") {
-//       $('<img src="'+ src.split("\"")[1] +'">').load(function() {
-//         $(this).width(1).height(1).appendTo(".imageBuffer");
-//       });
-//     }
-//   });
-// });
+// Parallax effect for background
+var scrollFactor = -0.25;
+$(".xScrollWrapper").on("scroll", function () {
+  $("#backgroundImage img").css("margin-left", $(this).scrollLeft() * scrollFactor);
+});
+var currentScrolls = {};
+$(".yScrollWrapper").on("scroll", function () {
+  console.log("scroll");
+  var $that = $(this);
+  currentScrolls[$that.index()] = $that.scrollTop();
+  console.log(currentScrolls);
+  var totalScroll = 0;
+  for (var key in currentScrolls) {
+    totalScroll += currentScrolls[key];
+  }
+  console.log(totalScroll);
+  $("#backgroundImage img").css("margin-top", totalScroll * scrollFactor);
+});

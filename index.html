@@ -13,7 +13,6 @@
 
     <!-- Custom CSS -->
     <link href="css/styles.css" rel="stylesheet">
-    <script src="js/initialize.js"></script>
   </head>
 
   <body>
@@ -33,14 +32,14 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navBarColapse">
           <ul class="nav navbar-nav">
-            <li data-target="#myCarousel" data-slide-to="0" class="active">
-              <a href="#">About Me</a>
+            <li class="active">
+              <a href="#aboutMe">About Me</a>
             </li>
-            <li data-target="#myCarousel" data-slide-to="1">
-              <a href="#">Projects</a>
+            <li>
+              <a href="#projects">Projects</a>
             </li>
-            <li data-target="#myCarousel" data-slide-to="2">
-              <a href="#">Work</a>
+            <li>
+              <a href="#work">Work</a>
             </li>
           </ul>
         </div>
@@ -48,15 +47,14 @@
       </div>
       <!-- /.container -->
     </nav>
-
-    
-    <!-- Full Page Image Background Carousel Header -->
-    <div id="myCarousel" class="carousel slide">
-      <!-- Wrapper for Slides -->
-      <div class="carousel-inner">
-        <div class="item active" id="aboutMe">
-          <div class="overflowHidden">
-            <div class="slideWrapper">
+    <div class="mainWrapper">
+      <div id="backgroundImage">
+        <img src="./images/workbench.jpg" align="center">
+      </div>
+      <div class="mainContent">
+        <div class="xScrollWrapper">
+          <div class="yScrollWrapper">
+            <div id="aboutMeNoScroll">
               <!-- About Me -->
               <div class="row">
                 <div class="col-sm-12 spacer hidden-xs"></div>
@@ -95,12 +93,10 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> <!-- end aboutMe -->
           </div>
-        </div>
-        <div class="item" id="projects">
-          <div class="overflowHidden">
-            <div class="slideWrapper">
+          <div class="yScrollWrapper">
+            <div id="projectsNoScroll">
               <!-- Projects -->
               <div class="row">
                 <div class="col-sm-12 spacer hidden-xs"></div>
@@ -195,12 +191,10 @@
               <div class="row">
                 <div class="col-sm-12 spacer hidden-xs"></div>
               </div>
-            </div>
+            </div> <!-- end projects -->
           </div>
-        </div>
-        <div class="item" id="work">
-          <div class="overflowHidden">
-            <div class="slideWrapper">
+          <div class="yScrollWrapper">
+            <div id="workNoScroll">
               <!-- Work -->
               <div class="row">
                 <div class="col-sm-12 spacer hidden-xs"></div>
